@@ -22,9 +22,15 @@ const ProductDetails = () => {
       return toast.error("Product details are missing!");
     }
   
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const token = userInfo?.token;
+  
+    if (!token) {
+      return toast.error("Please login to add items to wishlist.");
+    }
+  
     try {
       setLoading(true);
-      const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
       const { title, price, description, image, manufacturer, rating, sources } = product;
   
       await api.post(
