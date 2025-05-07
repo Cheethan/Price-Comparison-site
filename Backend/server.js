@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://price-comparison-site-smoky.vercel.app/', 
+  origin: 'https://price-comparison-site-smoky.vercel.app', 
   credentials: true
 }));
 
